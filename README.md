@@ -1,33 +1,102 @@
-# Simple Linear Regression
+#Linear Regression in machine learning
 
-**Simple Linear Regression
-**
+Introduction
+Regression is a supervised learning technique that supports finding the correlation among variables. A regression problem is when the output variable is a real or continuous value.
 
+ In this article, we will understand the following concepts:
 
-Simple linear regression is a type of regression analysis where the number of independent variables is one and there is a linear relationship between the independent(x) and dependent(y) variable. The red line in the above graph is referred to as the best fit straight line. Based on the given data points, we try to plot a line that models the points the best. The line can be modelled based on the linear equation shown below.
+What is a Regression?
+Types of a Regression.
+What is the mean of Linear regression and the importance of Linear regression?
+Importance of cost function and gradient descent in a Linear regression.
+Impact of different values for learning rate.
+Implement use case of Linear regression with python code.
+ 
 
-y=b0+b1x    
+What is a Regression
+In Regression, we plot a graph between the variables which best fit the given data points. The machine learning model can deliver predictions regarding the data. In naïve words, “Regression shows a line or curve that passes through all the data points on a target-predictor graph in such a way that the vertical distance between the data points and the regression line is minimum.” It is used principally for prediction, forecasting, time series modeling, and determining the causal-effect relationship between variables.
 
-b0=intercept  
+ 
 
-b1=slope
+Types of Regression models
+Linear Regression
+Polynomial Regression
+Logistics Regression
+ 
 
-![image](https://user-images.githubusercontent.com/92477493/140951290-528530b9-a822-49b5-bc7f-4472a50184c6.png)
+Linear Regression
+Linear regression is a quiet and simple statistical regression method used for predictive analysis and shows the relationship between the continuous variables. Linear regression shows the linear relationship between the independent variable (X-axis) and the dependent variable (Y-axis), consequently called linear regression. If there is a single input variable (x), such linear regression is called simple linear regression. And if there is more than one input variable, such linear regression is called multiple linear regression. The linear regression model gives a sloped straight line describing the relationship within the variables.
 
-SLR algorithem will give best fit line 
+![image](https://user-images.githubusercontent.com/92477493/141946716-6f5cf557-fc5a-48a1-8db3-b4076527f897.png)
 
-leat error
+The above graph presents the linear relationship between the dependent variable and independent variables. When the value of x (independent variable) increases, the value of y (dependent variable) is likewise increasing. The red line is referred to as the best fit straight line. Based on the given data points, we try to plot a line that models the points the best.
 
-OLS-Ordinary least square
+To calculate best-fit line linear regression uses a traditional slope-intercept form.
 
-Rsq=1-sum of square of Residual/sum of square of Total           
+Linear Regression equation
+y= Dependent Variable.
 
-Rsq-Co-efficient of deternination
-r-correlation co-efficient
+x= Independent Variable.
 
-Rsq-range between 0-1
-r-range between -1 to +1
+a0= intercept of the line.
 
-root(R)=r
-if r=-1 then -ve perfect linear relation
-if r=+1 then +ve perfect linear relation
+a1 = Linear regression coefficient.
+
+Need of a Linear regression
+
+As mentioned above, Linear regression estimates the relationship between a dependent variable and an independent variable. Let’s understand this with an easy example:
+
+Let’s say we want to estimate the salary of an employee based on year of experience. You have the recent company data, which indicates that the relationship between experience and salary. Here year of experience is an independent variable, and the salary of an employee is a dependent variable, as the salary of an employee is dependent on the experience of an employee. Using this insight, we can predict the future salary of the employee based on current & past information.
+
+A regression line can be a Positive Linear Relationship or a Negative Linear Relationship.
+
+ 
+
+Positive Linear Relationship
+If the dependent variable expands on the Y-axis and the independent variable progress on X-axis, then such a relationship is termed a Positive linear relationship.
+
+![image](https://user-images.githubusercontent.com/92477493/141948769-00b73529-dd6a-4dde-bf00-28c25ed47228.png)
+
+Negative Linear Relationship
+If the dependent variable decreases on the Y-axis and the independent variable increases on the X-axis, such a relationship is called a negative linear relationship.
+
+![image](https://user-images.githubusercontent.com/92477493/141948799-9221f43d-22ce-44be-a2a1-a181bfa3cd36.png)
+
+The goal of the linear regression algorithm is to get the best values for a0 and a1 to find the best fit line. The best fit line should have the least error means the error between predicted values and actual values should be minimized.
+
+Cost function
+The cost function helps to figure out the best possible values for a0 and a1, which provides the best fit line for the data points.
+
+Cost function optimizes the regression coefficients or weights and measures how a linear regression model is performing. The cost function is used to find the accuracy of the mapping function that maps the input variable to the output variable. This mapping function is also known as the Hypothesis function.
+
+In Linear Regression, Mean Squared Error (MSE) cost function is used, which is the average of squared error that occurred between the predicted values and actual values.
+
+By simple linear equation y=mx+b we can calculate MSE as:
+
+Let’s y = actual values, yi = predicted values
+
+Linear Regression MSE
+Using the MSE function, we will change the values of a0 and a1 such that the MSE value settles at the minima. Model parameters xi, b (a0,a1) can be manipulated to minimize the cost function. These parameters can be determined using the gradient descent method so that the cost function value is minimum.
+
+Gradient descent 
+Gradient descent is a method of updating a0 and a1 to minimize the cost function (MSE). A regression model uses gradient descent to update the coefficients of the line (a0, a1 => xi, b) by reducing the cost function by a random selection of coefficient values and then iteratively update the values to reach the minimum cost function.
+
+![image](https://user-images.githubusercontent.com/92477493/141948950-bcc3babf-dd5c-49c8-a7c9-7298adcc506c.png)
+
+Imagine a pit in the shape of U. You are standing at the topmost point in the pit, and your objective is to reach the bottom of the pit. There is a treasure, and you can only take a discrete number of steps to reach the bottom. If you decide to take one footstep at a time, you would eventually get to the bottom of the pit but, this would take a longer time. If you choose to take longer steps each time, you may get to sooner but, there is a chance that you could overshoot the bottom of the pit and not near the bottom. In the gradient descent algorithm, the number of steps you take is the learning rate, and this decides how fast the algorithm converges to the minima.
+
+![image](https://user-images.githubusercontent.com/92477493/141948986-8f62c322-a6b2-4442-a3db-d9a7ab981d60.png)
+
+To update a0 and a1, we take gradients from the cost function. To find these gradients, we take partial derivatives for a0 and a1.
+
+Partial derivatives Linear Regression
+linear regression cost function 2
+linear regression cost function 3
+The partial derivates are the gradients, and they are used to update the values of a0 and a1. Alpha is the learning rate.
+
+Impact of different values for learning rate
+
+![image](https://user-images.githubusercontent.com/92477493/141949066-c569ecfc-d05d-48b7-88df-817c8d8b77ec.png)
+
+The blue line represents the optimal value of the learning rate, and the cost function value is minimized in a few iterations. The green line represents if the learning rate is lower than the optimal value, then the number of iterations required high to minimize the cost function. If the learning rate selected is very high, the cost function could continue to increase with iterations and saturate at a value higher than the minimum value, that represented by a red and black line.
+
